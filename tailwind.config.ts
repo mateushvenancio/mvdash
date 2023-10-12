@@ -11,6 +11,9 @@ const config: Config = {
             colors: {
                 primary: '#4C48FF',
             },
+            transitionProperty: {
+                height: 'height',
+            },
         },
     },
     plugins: [],
