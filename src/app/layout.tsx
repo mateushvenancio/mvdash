@@ -20,12 +20,7 @@ export default function RootLayout({
         <html lang="en">
             <body className={inter.className}>
                 <TopBar />
-                <div className="flex flex-row gap-2">
-                    <NavBar />
-                    <div className="grow hidden lg:block bg-gray-200 p-4 rounded-tl-2xl">
-                        {children}
-                    </div>
-                </div>
+                <div className="p-4 md:px-8 lg:px-12">{children}</div>
             </body>
         </html>
     );
