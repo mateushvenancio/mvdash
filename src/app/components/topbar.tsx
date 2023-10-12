@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -12,9 +13,14 @@ export default function TopBar() {
                     <Link href="/">Home</Link>
                     <Link href="/projects">Projects</Link>
                 </div>
-                <div className="md:hidden" onClick={() => setOpen(!open)}>
-                    MENU
-                </div>
+                <Image
+                    alt="menu"
+                    src="/menu-icon.svg"
+                    width={18}
+                    height={18}
+                    className="md:hidden"
+                    onClick={() => setOpen(!open)}
+                />
             </div>
             <div
                 className={`md:hidden flex flex-col justify-evenly transition duration-500 ease-in-out ${
