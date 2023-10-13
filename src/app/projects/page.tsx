@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Button from '../components/button';
 import Card from '../components/card';
 import Dropdown from '../components/dropdown';
@@ -7,7 +8,7 @@ import Title from '../components/title';
 export default function Projects() {
     return (
         <div className="space-y-4">
-            <div className="flex flex-row space-x-4 [&>*]:grow">
+            <div className="flex flex-col lg:flex-row gap-4 [&>*]:grow">
                 <NewProjectForm />
                 <IconsForm />
             </div>
@@ -22,10 +23,9 @@ function NewProjectForm() {
             <Title title="New project" />
             <div className="my-2">
                 <Input className="w-full" label="Title" />
-                <div className="flex gap-2 mt-2">
+                <div className="flex flex-col lg:flex-row gap-2 mt-2">
                     <Input className="w-full" label="Description" />
                     <Input className="w-full" label="Link" />
-                    {/* <Input className="w-full" label="Icon" /> */}
                     <Dropdown />
                 </div>
             </div>
@@ -38,7 +38,7 @@ function IconsForm() {
     return (
         <Card>
             <Title title="Icons" />
-            <div className="flex flex-row space-x-2">
+            <div className="flex flex-col lg:flex-row gap-2">
                 <div className="space-y-2 mt-2">
                     <Input label="Name" />
                     <Input label="Path" />
@@ -66,44 +66,69 @@ function IconsForm() {
 
 function IconListTile() {
     return (
-        <div className="flex space-x-2 py-1 hover:bg-gray-100 cursor-default">
-            <div>1</div>
-            <div className="grow">Flutter</div>
+        <div className="flex space-x-2 py-1 hover:bg-gray-100 px-2 items-center cursor-default">
+            <div className="grow ">Flutter</div>
             <div className="truncate max-w-xs">
                 http://github.com/jhfhgfhgfjhgfjhghbjhbjhbjhbjhbjhbjhbjhbjhbjhbjhbjhbjhbfjghfjhgfjhgfjhgf.png
             </div>
-            <div>D</div>
+            <Image
+                src="/delete-icon.svg"
+                color="red"
+                alt="Delete"
+                width={13}
+                height={13}
+            />
         </div>
     );
 }
 
 function ProjectsTable() {
     return (
-        <Card>
-            <table className="table-auto w-full text-center cursor-default">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Icon</th>
-                        <th>Link</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>This Website</td>
-                        <td>It&apos;s this website</td>
-                        <td>It&apos;s this website</td>
-                        <td>It&apos;s this website</td>
-                        <td>It&apos;s this website</td>
-                        <td>It&apos;s this website</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
+        </div>
+    );
+}
+
+function ProjectCard() {
+    return (
+        <Card className="cursor-default">
+            <div className="group relative">
+                <div className="flex items-center justify-between gap-1">
+                    <div className="font-semibold truncate">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Ullam, commodi.
+                    </div>
+                    {/* <Image src="/menu-icon.svg" alt="" width={12} height={12} />
+                     */}
+                    <Image
+                        src="/delete-icon.svg"
+                        alt=""
+                        width={12}
+                        height={12}
+                    />
+                </div>
+                <div className="text-sm">Description</div>
+                <div className="flex gap-2 items-center">
+                    <Image src="/menu-icon.svg" alt="" width={12} height={12} />
+                    <div className="truncate text-blue-700 underline">
+                        https://github.com/mateushvenancio/mvsite-repository
+                    </div>
+                </div>
+                {/* <div className="absolute top-0 left-0 hidden group ">
+                    <Image
+                        src="/delete-icon.svg"
+                        alt=""
+                        width={12}
+                        height={12}
+                    />
+                </div> */}
+            </div>
         </Card>
     );
 }

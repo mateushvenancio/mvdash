@@ -23,7 +23,7 @@ export default function TopBar() {
                 />
             </div>
             <div
-                className={`md:hidden flex flex-col justify-evenly transition duration-500 ease-in-out ${
+                className={`md:hidden flex flex-col justify-evenly transition-all transition-heigth duration-500 ease-in-out ${
                     open ? 'h-48' : 'h-0 hidden'
                 }`}
             >
